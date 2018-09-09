@@ -11,6 +11,7 @@ signature for `toInt` and `toFloat`.
 
 -}
 
+import Result exposing (toMaybe)
 import String exposing (join, split)
 
 
@@ -66,13 +67,8 @@ want to use [`Maybe.withDefault`](Maybe#withDefault) to handle bad data:
 
 -}
 toInt : String -> Maybe Int
-toInt s =
-    case String.toInt s of
-        Ok r ->
-            Just r
-
-        Err _ ->
-            Nothing
+toInt =
+    String.toInt >> toMaybe
 
 
 {-| Convert a `Float` to a `String`.
@@ -111,10 +107,5 @@ want to use [`Maybe.withDefault`](Maybe#withDefault) to handle bad data:
 
 -}
 toFloat : String -> Maybe Float
-toFloat s =
-    case String.toFloat s of
-        Ok r ->
-            Just r
-
-        Err _ ->
-            Nothing
+toFloat =
+    String.toFloat >> toMaybe
