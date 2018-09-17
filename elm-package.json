@@ -12,6 +12,7 @@
         "Bitwise017",
         "Char019",
         "Debug019",
+        "Http017",
         "Json.Decode017",
         "Json.Encode019",
         "Maybe017",
